@@ -29,6 +29,9 @@ function harrix_load_highlight_js()
 
 function harrix_markdown_make( $atts, $content ) 
 {
+    if ( ! stristr( '//', $content ) ) {
+		$content = home_url() . $content;
+	}
     $yourfile = esc_url( $content );
     $contents = file_get_contents( $yourfile );
 
